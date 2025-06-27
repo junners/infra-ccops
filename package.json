@@ -22,7 +22,9 @@
     "eslint-config-oclif": "^6",
     "eslint-config-prettier": "^10",
     "expect": "^30.0.3",
+    "husky": "^9.1.7",
     "jest": "^30.0.3",
+    "lint-staged": "^16.1.2",
     "oclif": "^4",
     "shx": "^0.4.0",
     "ts-node": "^10",
@@ -63,11 +65,15 @@
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint",
     "postpack": "shx rm -f oclif.manifest.json",
-    "posttest": "pnpm run lint",
+    "precommit": "lint-staged",
     "prepack": "oclif manifest && oclif readme",
     "test": "node --test",
     "test:cov": "node --experimental-test-coverage --test",
-    "version": "oclif readme && git add README.md"
+    "version": "oclif readme && git add README.md",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.ts": ["eslint --fix", "prettier --write"]
   },
   "types": "dist/index.d.ts"
 }

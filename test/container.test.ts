@@ -17,5 +17,10 @@ describe('Singleton Container', () => {
     it('should return an instance of container', () => {
       expect(IOCContainer.getInstance()).toBeInstanceOf(Container);
     });
+
+    it('should be singleton', () => {
+      const firstContainerInstance = IOCContainer.getInstance();
+      expect(firstContainerInstance).toStrictEqual(IOCContainer.getInstance());
+    });
   });
 });
