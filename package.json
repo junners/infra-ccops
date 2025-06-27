@@ -1,0 +1,73 @@
+{
+  "name": "ccops",
+  "description": "corecraft ops cli",
+  "version": "0.0.0",
+  "author": "junners",
+  "bin": {
+    "ccops": "./bin/run.js"
+  },
+  "bugs": "https://github.com/junners/infra/ccops/issues",
+  "dependencies": {
+    "@oclif/core": "^4",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^5",
+    "inversify": "7.5.4",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1",
+    "@oclif/test": "^4",
+    "@types/node": "^24",
+    "eslint": "^9",
+    "eslint-config-oclif": "^6",
+    "eslint-config-prettier": "^10",
+    "expect": "^30.0.3",
+    "jest": "^30.0.3",
+    "oclif": "^4",
+    "shx": "^0.4.0",
+    "ts-node": "^10",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "files": [
+    "./bin",
+    "./dist",
+    "./oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/junners/infra/ccops",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "type": "module",
+  "oclif": {
+    "bin": "ccops",
+    "dirname": "ccops",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
+  },
+  "repository": "junners/infra/ccops",
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "pnpm run lint",
+    "prepack": "oclif manifest && oclif readme",
+    "test": "node --test",
+    "test:cov": "node --experimental-test-coverage --test",
+    "version": "oclif readme && git add README.md"
+  },
+  "types": "dist/index.d.ts"
+}
