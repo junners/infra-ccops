@@ -62,15 +62,17 @@
   },
   "repository": "junners/infra/ccops",
   "scripts": {
-    "build": "shx rm -rf dist && tsc -b",
+    "build": "shx rm -rf dist tsconfig.tsbuildinfo && tsc -b",
     "lint": "eslint",
     "postpack": "shx rm -f oclif.manifest.json",
     "precommit": "lint-staged",
-    "prepack": "oclif manifest && oclif readme",
+    "prepack": "pnpm build && oclif manifest && oclif readme",
     "test": "node --test",
     "test:cov": "node --experimental-test-coverage --test",
     "version": "oclif readme && git add README.md",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prestart": "pnpm build",
+    "start": "node bin/run.js"
   },
   "lint-staged": {
     "*.ts": ["eslint --fix", "prettier --write"]
