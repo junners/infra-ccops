@@ -8,27 +8,28 @@
   },
   "bugs": "https://github.com/junners/infra/ccops/issues",
   "dependencies": {
-    "@oclif/core": "^4",
-    "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^5",
+    "@oclif/core": "4.4.0",
+    "@oclif/plugin-help": "6.2.29",
+    "@oclif/plugin-plugins": "5.4.42",
     "inversify": "7.5.4",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "0.2.2"
   },
   "devDependencies": {
-    "@eslint/compat": "^1",
-    "@oclif/test": "^4",
-    "@types/node": "^24",
-    "eslint": "^9",
-    "eslint-config-oclif": "^6",
-    "eslint-config-prettier": "^10",
-    "expect": "^30.0.3",
-    "husky": "^9.1.7",
-    "jest": "^30.0.3",
-    "lint-staged": "^16.1.2",
-    "oclif": "^4",
-    "shx": "^0.4.0",
-    "ts-node": "^10",
-    "typescript": "^5"
+    "@eslint/compat": "1.3.1",
+    "@oclif/test": "4.1.13",
+    "@types/node": "24.0.4",
+    "eslint": "9.29.0",
+    "eslint-config-oclif": "6.0.76",
+    "eslint-config-prettier": "10.1.5",
+    "expect": "30.0.3",
+    "husky": "9.1.7",
+    "jest": "30.0.3",
+    "lint-staged": "16.1.2",
+    "oclif": "4.20.1",
+    "shx": "0.4.0",
+    "ts-node": "10.9.2",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3"
   },
   "engines": {
     "node": "24.x"
@@ -67,15 +68,18 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "precommit": "lint-staged",
     "prepack": "pnpm build && oclif manifest && oclif readme",
-    "test": "node --test",
-    "test:cov": "node --experimental-test-coverage --test",
+    "test": "node --import=tsx --test",
+    "test:cov": "node --import=tsx --experimental-test-coverage --test",
     "version": "oclif readme && git add README.md",
     "prepare": "husky",
     "prestart": "pnpm build",
     "start": "node bin/run.js"
   },
   "lint-staged": {
-    "*.ts": ["eslint --fix", "prettier --write"]
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "types": "dist/index.d.ts"
 }

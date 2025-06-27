@@ -2,7 +2,7 @@ import { expect } from 'expect';
 import { Container } from 'inversify';
 import { describe, it } from 'node:test';
 
-import { IOCContainer } from '../src/container.ts';
+import { IOCContainer } from '../../src/core/container.ts';
 
 describe('Singleton Container', () => {
   it('should be defined', () => {
