@@ -2,17 +2,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "pnpm start generate manifest",
-      "name": "Run npm start",
+      "command": "node --test-name-pattern=\"resolve.should validate that config/service.yml exist\" --import=tsx --loader=esmock --test test/core/service/project-service.test.ts",
+      "name": "Debug a test",
       "request": "launch",
       "type": "node-terminal"
     },
     {
-      "type": "node",
-      "request": "attach",
-      "name": "Attach",
-      "port": 9229,
-      "skipFiles": ["<node_internals>/**"]
+      "command": "pnpm start generate manifest",
+      "name": "Run npm start",
+      "request": "launch",
+      "type": "node-terminal"
     },
     {
       "type": "node",
